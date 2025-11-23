@@ -1,14 +1,14 @@
-title: 'rcm.github.io'
-description: "The best in basement journalism."
+title: 'strbckr.github.io'
+description: "Carter Richard's personal Github pages website."
 baseurl:
-url: "https://rcm.github.io"
+url: "https://strbckr.github.io"
 
 header_pages:
   - index.md
 
 style: dark
 
-footer: 'Support the RCM project on <a href="https://github.com/starb-ck">github</a>.'
+footer: 'Hello world!'
 
 # Build settings
 markdown: kramdown

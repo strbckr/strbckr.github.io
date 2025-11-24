@@ -4,7 +4,7 @@ layout: home
 permalink: /
 ---
 
-<h1>Strbckr</h1>
+<h1>strbckr.github.io</h1>
 
 This website is under construction. 
 

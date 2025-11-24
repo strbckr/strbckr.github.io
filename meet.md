@@ -1,7 +1,7 @@
 ---
 title: /meet
 layout: page
-permalink: /calendar/
+permalink: /meet/
 ---
 
 <!-- Calendly inline widget begin -->

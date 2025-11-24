@@ -19,7 +19,7 @@ There are some limitations - first of all, I'm still running the asimov@home sta
 
 What I *can* work on for now is improving the orchestration. I have a couple ideas here - for starters, I think I can move the frontend services (like the homepage) onto a RaspberryPi. That way if the main services go down, I can still check the container health dashboard. Along with this, I'll probably split out those main services out into their own compose files (and orchestrate them with K8s? Maybe??) so that way I can take down/stand up containers individually as I edit their configurations.
 
-It's not too bad for now. What this all means is that I can now self-host web-apps like this [CDC WONDER dashboard](https://shiny.calcifer.cloud/demos/cdc-wonder-cod). I think that's pretty exciting, especially for maintaining a freelancing portfolio. 
+It's not too bad for now. What this all means is that I can now self-host web-apps like this [CDC WONDER dashboard](https://shiny.strbckr.com/demos/cdc-wonder-cod). I think that's pretty exciting, especially for maintaining a freelancing portfolio. 
 
 Cheers,
 -Carter

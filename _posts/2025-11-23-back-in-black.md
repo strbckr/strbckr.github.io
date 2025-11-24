@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Back in black"
+title:  "back in black"
 date:   2025-11-23 20:07:00 -0500
 categories:
 ---

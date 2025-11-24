@@ -5,10 +5,12 @@ url: "https://strbckr.github.io"
 
 header_pages:
   - index.md
+  - about.md
+  - projects.md
 
 style: dark
 
-footer: 'Hello world!'
+footer: 'Follow me on <a href="https://github.com/strbckr">github</a>.'
 
 # Build settings
 markdown: kramdown

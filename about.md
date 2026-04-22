@@ -8,4 +8,6 @@ permalink: /about/
 
 Download my [resume](/assets/resume.pdf).
 
+Connect on [LinkedIn](https://www.linkedin.com/in/carterkrichard/).
+
 Send me an [email](mailto:carter.k.richard@icloud.com).

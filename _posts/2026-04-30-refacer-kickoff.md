@@ -5,7 +5,7 @@ date:   2026-04-30 08:00:00 -0500
 categories:
 ---
 
-## The camera remembers everything. Sometimes that's dangerous.
+# The camera remembers everything. Sometimes that's dangerous.
 
 A few years ago I was doing photojournalism work, covering protests. One thing stuck with me — how much effort people put into not being seen. Coverings, masks, hoods pulled up, turning away the moment a camera came out.
 
@@ -21,43 +21,43 @@ That was 1956. There was no facial recognition. No GPS metadata. No way to cross
 
 The stakes haven’t gotten smaller. They’ve compounded enormously. Because the images themselves still matter just as much as they did then. A photograph of a protest isn’t just documentation — it’s testimony. It captures energy, emotion, and humanity in a way that words rarely can. The story lives in those images. But so does the risk.
 
-I had photos I wanted to share that told exactly that kind of story. I hesitated anyway. Not because they weren’t worth sharing, but because sharing them meant potentially
-exposing people who had already gone to great lengths to protect themselves.
+I had photos I wanted to share that told exactly that kind of story. I hesitated anyway. Not because they weren’t worth sharing, but because sharing them meant potentially exposing people who had already gone to great lengths to protect themselves.
 
-So I shelved those photos.
+I shelved those photos.
 
 The question Refacer is trying to answer is simple: what if you didn’t have to choose? What if the story could be told and the people in it could be protected?
 
 ---
-## So I'm building something about it
+# So I'm building something about it
 
 Refacer is a locally-run, fully offline desktop tool for photojournalists and activist photographers. It does two things:
  - Anonymizes faces in batches of photos using AI inpainting — replacing each detected face with a uniquely generated one that can’t be reversed or traced back
  - Strips all metadata — GPS, timestamps, camera serial numbers, all of it, gone
 
-No cloud. No API calls. No images ever leave your machine. The whole point is that it
-runs on your hardware, under your control.
+No cloud. No API calls. No images ever leave your machine. The whole point is that it runs on your hardware, under your control.
 
 ---
-## Why this specifically 
+# Why this specifically 
 
 There are existing tools for this kind of thing, but they tend to fall into one of two camps — either they’re heavyweight enterprise software that costs money and requires technical setup, or they’re online services that ask you to upload sensitive photos to someone else’s server, which somewhat defeats the purpose.
 
 Refacer is meant to be FOSS, portable, and dead simple to use. If a photojournalist in the field with a modest laptop can run it, that’s the bar.
 ---
-## The tech 
+# The tech stack
 
 Under the hood it’s a Python pipeline:
 
 Face Detection → Face Swap → Enhancement/Compositing → Metadata Scrub
 
-Each stage is modular and independent. Face detection uses InsightFace’s RetinaFace backend, which handles crowds, angles, and partial occlusion well. Inpainting uses LaMa, a lightweight model optimized for CPU inference — no GPU required. Metadata scrubbing uses exiftool, which is about as battle-tested as it gets for this kind of thing.
+Each stage is modular and independent. Face detection uses InsightFace’s RetinaFace backend, which handles crowds, angles, and partial occlusion well. Replacement is handled by inswapper_128 (also by InsightFace) for random identity swapping. Enhancement/compositing is provided by GFPGAN. Metadata scrubbing uses exiftool, which is about as battle-tested as it gets for this kind of thing.
    
-Crucially, inpainting is intentionally non-deterministic — no random seed, different output every run. This makes reversal attacks infeasible. You can’t work backwards from the output to reconstruct the original face.
+Crucially, the face-swapping is intentionally non-deterministic — no random seed, no shared consistency, different output every run. This makes reversal attacks infeasible. You can’t work backwards from the output to reconstruct the original face.
 
 The UI will be a simple Gradio interface running locally in your browser. Drop in a folder, hit Run, get anonymized photos out.
 ---
 ## What's next
-Right now I’m in the early prototyping phase — validating that the composite quality is actually good enough before building the full pipeline around it. I’ll be documenting the whole build process here as I go, including the dead ends.
+Right now I’m in the early prototyping phase — validating that the composite quality is actually good enough before building the full pipeline around it. I’ll be documenting the whole build process here as I go, including the dead ends. Here's a sample of the latest test results:
+
+![Face-swap test](/assets/images/faceswap_test.jpg){:width="100%"}
 
 If this sounds useful to you — whether you’re a journalist, an activist, a researcher, or just someone who thinks this kind of tool should exist — follow along. And if you want to contribute when it’s open sourced, that door will be wide open.
